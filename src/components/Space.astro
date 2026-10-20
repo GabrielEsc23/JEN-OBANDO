@@ -1,0 +1,110 @@
+---
+import { Image } from "astro:assets";
+import elPorvenirImg from "../assets/images/EL PORVENIR.jpeg";
+import salaInteriorImg from "../assets/images/FullSizeRender 2.jpeg";
+import detalleSomaticoImg from "../assets/images/FullSizeRender.jpeg";
+
+const tags = [
+  "Presencial en El Porvenir",
+  "Rodeado de naturaleza",
+  "Silencio y paz",
+  "Terapia individual y talleres",
+  "Guayaquil, Ecuador",
+];
+---
+
+<section id="el-porvenir" class="py-20 md:py-28 bg-salvia-light/40 border-b border-salvia/20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="bg-crema border border-sombra/60 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-xs">
+      
+      <!-- Decoración ambiental sutil -->
+      <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-salvia/20 blur-2xl -z-0 pointer-events-none"></div>
+      <div class="absolute top-0 right-10 w-40 h-40 rounded-full bg-celeste/20 blur-xl -z-0 pointer-events-none"></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <!-- Columna izquierda: Información y narrativa -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <span class="text-xs uppercase tracking-[0.25em] font-semibold text-salvia-dark">
+              El Porvenir (Guayaquil, Ecuador)
+            </span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-espresso mt-2">
+              Un espacio que forma parte activa de tu proceso
+            </h2>
+          </div>
+
+          <!-- Párrafos reales -->
+          <p class="text-espresso/85 text-base md:text-lg leading-relaxed font-normal">
+            Un espacio físico rodeado de naturaleza, silencio y paz que forma parte activa del proceso terapéutico. Aquí el verde, la luz natural y la atmósfera calma hablan antes de pronunciar la primera palabra.
+          </p>
+
+          <p class="text-espresso/75 text-sm md:text-base leading-relaxed">
+            La presencia pausada del entorno y el contacto con lo natural son co-terapeutas vivas en cada encuentro. Aquí el cuerpo respira con otra amplitud, encuentra un ancla segura y se permite aflojar las defensas cotidianas.
+          </p>
+
+          <!-- Tags de atributos del espacio -->
+          <div class="pt-2 flex flex-wrap gap-2.5">
+            {tags.map((tag) => (
+              <span class="px-3.5 py-1.5 rounded-full bg-celeste-light/50 text-espresso/80 border border-celeste/25 text-xs font-medium tracking-wide">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div class="pt-4">
+            <a
+              href="#contacto"
+              class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-espresso hover:text-celeste transition-colors"
+            >
+              <span>Consultar visitas y ubicación en Guayaquil</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: Grid de imágenes del espacio optimizadas con Astro Assets -->
+        <div class="lg:col-span-6 space-y-4">
+          <!-- Imagen principal: El Porvenir altar y círculo somático -->
+          <div class="relative overflow-hidden rounded-2xl shadow-sm border border-sombra/40 aspect-[16/10] bg-arena/30">
+            <Image
+              src={elPorvenirImg}
+              alt="El Porvenir — Espacio ceremonial y somático con flores, velas y cojines"
+              class="w-full h-full object-cover object-center"
+            />
+            <div class="absolute bottom-3 left-3 bg-crema/90 backdrop-blur-xs px-3 py-1 rounded-full border border-sombra/40 text-[11px] font-semibold text-espresso shadow-xs">
+              El Porvenir · Espacio sagrado y vivencial
+            </div>
+          </div>
+
+          <!-- Grid secundaria: Sala interior y detalle de presencia -->
+          <div class="grid grid-cols-2 gap-4">
+            <div class="relative overflow-hidden rounded-xl border border-sombra/40 aspect-[4/3] bg-arena/30 shadow-xs">
+              <Image
+                src={salaInteriorImg}
+                alt="Jen en la sala interior iluminada y rodeada de plantas"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute bottom-2 left-2 bg-crema/90 backdrop-blur-xs px-2 py-0.5 rounded-full border border-sombra/30 text-[10px] font-medium text-espresso">
+                Sala de presencia
+              </div>
+            </div>
+
+            <div class="relative overflow-hidden rounded-xl border border-sombra/40 aspect-[4/3] bg-arena/30 shadow-xs">
+              <Image
+                src={detalleSomaticoImg}
+                alt="Jen Obando en calma y conexión corporal"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute bottom-2 left-2 bg-crema/90 backdrop-blur-xs px-2 py-0.5 rounded-full border border-sombra/30 text-[10px] font-medium text-espresso">
+                Conexión y calma
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

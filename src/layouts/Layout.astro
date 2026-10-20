@@ -1,0 +1,58 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Jen Obando | Terapeuta Emocional · Gestalt Integrativo",
+  description = "El secreto no está en entenderlo todo... está en volver a sentir. Acompañamiento terapéutico con enfoque Gestalt Integrativo: Consciencia, Presencia y Coherencia en El Porvenir, Guayaquil, Ecuador.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts: Public Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-crema text-espresso font-sans antialiased selection:bg-celeste/20 selection:text-espresso min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* Base typography adjustments */
+  body {
+    background-color: #FFFFFF;
+    color: #1A2B3C;
+    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F8FAFC;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D1DFEB;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3B82A6;
+  }
+</style>

@@ -1,0 +1,116 @@
+---
+const navLinks = [
+  { name: "Mi enfoque", href: "#sobre-jen" },
+  { name: "Pilares", href: "#pilares" },
+  { name: "Herramientas", href: "#herramientas" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Contacto", href: "#contacto" },
+];
+---
+
+<header class="sticky top-4 md:top-6 z-50 px-4 w-full flex flex-col items-center pointer-events-none transition-all duration-300">
+  <!-- Floating Pill Navbar (ancho ~50% en desktop, bordes redondeados) -->
+  <div class="pointer-events-auto w-full md:w-[65%] lg:w-[50%] max-w-3xl bg-crema/90 backdrop-blur-md border border-sombra/60 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 shadow-md shadow-espresso/5 flex items-center justify-between gap-4 transition-all">
+    
+    <!-- Brand / Logo -->
+    <a href="#" class="flex flex-col flex-shrink-0 group">
+      <span class="text-sm sm:text-base font-bold tracking-tight text-espresso group-hover:text-espresso/80 transition-colors">
+        JEN OBANDO
+      </span>
+      <span class="text-[9px] tracking-widest uppercase text-espresso/60 -mt-0.5">
+        Terapeuta
+      </span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden md:flex items-center space-x-5 lg:space-x-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-xs lg:text-sm font-medium text-espresso/80 hover:text-celeste transition-colors relative py-0.5 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-celeste hover:after:w-full after:transition-all after:duration-300"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA & Mobile Toggle -->
+    <div class="flex items-center gap-2">
+      <!-- Botón Agendar -->
+      <a
+        href="#contacto"
+        class="inline-flex items-center justify-center px-4 py-1.5 sm:py-2 rounded-full text-[11px] font-semibold tracking-wide uppercase bg-espresso text-crema hover:bg-celeste-dark hover:shadow-xs transition-all duration-200 flex-shrink-0"
+      >
+        Agendar
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden p-1.5 rounded-full text-espresso hover:bg-celeste-light/60 transition-colors"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu Floating Box -->
+  <div
+    id="mobile-menu"
+    class="pointer-events-auto md:hidden hidden w-full max-w-sm mt-2 rounded-2xl bg-crema/95 backdrop-blur-md border border-sombra/50 p-5 shadow-lg space-y-3 transition-all"
+  >
+    <div class="flex flex-col space-y-2.5">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-nav-link text-sm font-medium text-espresso/80 hover:text-celeste py-1 px-2 rounded-lg hover:bg-celeste-light/60 transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+    <div class="pt-3 border-t border-sombra/25">
+      <a
+        href="#contacto"
+        class="mobile-nav-link block text-center w-full py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-espresso text-crema hover:bg-celeste-dark transition-all"
+      >
+        Agendar sesión
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggleBtn = document.getElementById("mobile-menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const hamburgerIcon = document.getElementById("hamburger-icon");
+  const closeIcon = document.getElementById("close-icon");
+  const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+  if (toggleBtn && mobileMenu && hamburgerIcon && closeIcon) {
+    toggleBtn.addEventListener("click", () => {
+      const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+      toggleBtn.setAttribute("aria-expanded", String(!isExpanded));
+      mobileMenu.classList.toggle("hidden");
+      hamburgerIcon.classList.toggle("hidden");
+      closeIcon.classList.toggle("hidden");
+    });
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        hamburgerIcon.classList.remove("hidden");
+        closeIcon.classList.add("hidden");
+        toggleBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+</script>

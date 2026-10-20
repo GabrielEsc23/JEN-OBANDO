@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import bannerHero from "../assets/images/BANNER HERO.jpeg";
+import chiguaguaImg from "../assets/images/chiguagua.png";
+import persaImg from "../assets/images/persa.png";
+---
+
+<section class="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-crema via-crema to-celeste-light/40">
+  <!-- Subtle organic background accents -->
+  <div class="absolute top-1/4 -right-24 w-96 h-96 rounded-full bg-celeste/25 blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-salvia/20 blur-3xl -z-10 pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+      
+      <!-- Columna de texto -->
+      <div class="lg:col-span-7 text-left space-y-6">
+        <!-- Título principal -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-espresso leading-[1.14]">
+          El secreto no está en entenderlo todo... <br class="hidden sm:inline" />
+          <span class="relative inline-block mt-1">
+            está en volver a sentir.
+            <svg class="absolute -bottom-2 left-0 w-full h-3 text-celeste/70" viewBox="0 0 100 12" preserveAspectRatio="none">
+              <path d="M0,8 Q50,12 100,6" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"></path>
+            </svg>
+          </span>
+        </h1>
+
+        <!-- Tagline -->
+        <p class="text-xs md:text-sm font-semibold tracking-widest uppercase text-celeste-dark">
+          Enfoque Gestalt Integrativo · Consciencia, Presencia y Coherencia
+        </p>
+
+        <!-- Descripción real -->
+        <p class="text-base md:text-lg text-espresso/80 leading-relaxed font-normal max-w-xl">
+          Acompaño a mujeres a vivir transformaciones reales desde el cuerpo, las emociones y la experiencia vivida. Sin teorías frías de libro: desde el camino recorrido, con los pies en la tierra.
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+          <a
+            href="#servicios"
+            class="inline-flex items-center justify-center px-7 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wider uppercase bg-espresso text-crema hover:bg-celeste-dark hover:shadow-md transition-all duration-200"
+          >
+            Ver servicios
+          </a>
+          <a
+            href="#sobre-jen"
+            class="inline-flex items-center justify-center px-7 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wider uppercase bg-crema text-espresso border border-sombra hover:border-celeste hover:text-celeste-dark hover:bg-celeste-light/40 transition-all duration-200"
+          >
+            Sobre Jen
+          </a>
+        </div>
+      </div>
+
+      <!-- Columna de imagen principal -->
+      <div class="lg:col-span-5">
+        <div class="relative mx-auto max-w-md lg:max-w-none">
+          <!-- Fondo decorativo tipo marco artesanal -->
+          <div class="absolute -inset-3 bg-celeste-light/60 rounded-3xl border border-celeste/30 -rotate-1 pointer-events-none"></div>
+          
+          <!-- Fotografía principal optimizada con Astro Assets -->
+          <div class="relative z-10 overflow-hidden rounded-2xl shadow-md border border-sombra/60 aspect-[4/5] bg-celeste-light/20">
+            <Image
+              src={bannerHero}
+              alt="Jen Obando — Terapeuta Emocional con enfoque Gestalt Integrativo"
+              class="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+          </div>
+
+          <!-- Distintivo flotante con los iconos de Chihuahua y Persa -->
+          <div class="absolute -bottom-3.5 -left-3 sm:-bottom-4 sm:-left-4 z-20 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-celeste/30 shadow-md flex items-center gap-3 transition-transform hover:scale-105">
+            <div class="flex items-center gap-1.5">
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-celeste-light/40 p-1 border border-celeste/20 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={chiguaguaImg}
+                  alt="Chihuahua"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-celeste-light/40 p-1 border border-celeste/20 flex items-center justify-center overflow-hidden">
+                <Image
+                  src={persaImg}
+                  alt="Persa"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <div class="flex flex-col text-left">
+              <span class="text-xs font-bold text-espresso leading-tight">
+                💕
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

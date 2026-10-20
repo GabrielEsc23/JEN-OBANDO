@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Pillars from '../components/Pillars.astro';
+import Tools from '../components/Tools.astro';
+import Skills from '../components/Skills.astro';
+import Services from '../components/Services.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Jen Obando — Terapeuta Emocional · Enfoque Gestalt Integrativo"
+  description="El secreto no está en entenderlo todo... está en volver a sentir. Acompañamiento a mujeres desde el cuerpo, las emociones y la experiencia vivida en Guayaquil, Ecuador."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Pillars />
+    <Tools />
+    <Skills />
+    <Services />
+    <Testimonials />
+    <Contact />
+    <FinalCta />
+  </main>
+  <Footer />
+</Layout>

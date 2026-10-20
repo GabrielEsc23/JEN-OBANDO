@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+import sobreJen from "../assets/images/SOBRE JEN.jpeg";
+import conocimiento from "../assets/images/CONOCIMIENTO.jpeg";
+
+const credentials = [
+  "Terapeuta emocional con enfoque Gestalt Integrativo",
+  "Acompañamiento vivencial en Consciencia, Presencia y Coherencia",
+  "Formada en Hakomi, Focusing, IFS y Terapia Centrada en la Persona",
+  "Experiencia vivida tras 21 años como cuidadora primaria y camino de retorno a sí misma",
+  "Espacios terapéuticos presenciales y modalidad virtual",
+];
+---
+
+<section id="sobre-jen" class="py-20 md:py-28 bg-celeste-soft border-y border-celeste/20 relative overflow-hidden">
+  <!-- Acentos orgánicos ambientales -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-celeste/20 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-salvia/15 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Columna izquierda: Historia y credenciales -->
+      <div class="lg:col-span-7 space-y-6">
+        <div>
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-espresso">
+            Devolverte a la totalidad de lo que eres
+          </h2>
+        </div>
+
+        <!-- ¿Qué es la Terapia Gestalt Integrativa? -->
+        <div class="space-y-3.5 bg-crema/60 p-6 rounded-2xl border border-sombra/40">
+          <h3 class="text-base sm:text-lg font-bold text-espresso flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-celeste"></span>
+            ¿Qué es la Terapia Gestalt Integrativa?
+          </h3>
+          <p class="text-espresso/85 text-base leading-relaxed font-normal">
+            Es una forma de acompañamiento que no busca <span class="font-semibold text-espresso">"arreglarte" como si estuvieras rota</span>, sino devolverte a la totalidad de lo que eres.
+          </p>
+          <p class="text-espresso/75 text-sm sm:text-base leading-relaxed">
+            Trabajamos en el aquí y ahora, escuchando lo que tu cuerpo expresa (tensiones, nudos, cansancio) para alinear lo que piensas, sientes y haces mediante un espacio seguro y sin juicios.
+          </p>
+        </div>
+
+        <!-- Lista de credenciales -->
+        <div class="pt-2">
+          <h3 class="text-xs font-bold tracking-wider uppercase text-espresso mb-4">
+            Trayectoria y Enfoque:
+          </h3>
+          <ul class="space-y-3">
+            {credentials.map((cred) => (
+              <li class="flex items-start gap-3 text-sm md:text-base text-espresso/85">
+                <span class="flex-shrink-0 w-5 h-5 rounded-full bg-salvia/20 text-salvia-dark flex items-center justify-center mt-0.5">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                </span>
+                <span>{cred}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Acreditación académica destacada con imagen real -->
+        <div class="pt-2">
+          <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-2xl bg-crema border border-sombra/60 shadow-xs">
+            <div class="w-full sm:w-24 h-44 sm:h-24 rounded-xl overflow-hidden flex-shrink-0 border border-sombra/40 bg-celeste-light/20">
+              <Image
+                src={conocimiento}
+                alt="Formación y acreditación Cre-Ser 2025 en Desarrollo Humano — Jen Obando"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="space-y-1 text-center sm:text-left">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-salvia-dark px-2.5 py-0.5 rounded-full bg-salvia-light border border-salvia/20 inline-block">
+                Acreditación Profesional
+              </span>
+              <h4 class="font-bold text-sm text-espresso">
+                Formación en Desarrollo Humano · Cre-Ser 2025
+              </h4>
+              <p class="text-xs text-espresso/70 leading-relaxed">
+                Respaldo profesional y constante actualización en acompañamiento terapéutico, relacional y somático.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna derecha: Imagen de Jen en sesión + Cita destacada -->
+      <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
+        
+        <!-- Fotografía de vocación y vida optimizada con Astro Assets -->
+        <div class="relative overflow-hidden rounded-2xl shadow-sm border border-sombra/60 bg-celeste-light/20 aspect-[16/11]">
+          <Image
+            src={sobreJen}
+            alt="Jen Obando — 21 años como cuidadora y camino de reconstrucción personal"
+            class="w-full h-full object-cover object-center"
+          />
+          <div class="absolute bottom-3 left-3 bg-crema/95 backdrop-blur-xs px-3 py-1 rounded-full border border-sombra/40 text-[11px] font-semibold text-espresso shadow-xs">
+            21 años de historia y reconstrucción
+          </div>
+        </div>
+
+        <!-- Tarjeta de cita destacada -->
+        <div class="bg-crema p-7 md:p-8 rounded-2xl border border-sombra/60 shadow-xs relative overflow-hidden">
+          <span class="text-6xl font-serif text-celeste/25 absolute -top-2 left-5 select-none pointer-events-none">
+            “
+          </span>
+
+          <div class="relative z-10 space-y-4">
+            <span class="inline-block text-[10px] font-semibold tracking-widest uppercase text-celeste-dark px-3 py-1 bg-celeste-light/60 rounded-full border border-celeste/25">
+              Voz de acompañamiento
+            </span>
+
+            <blockquote class="text-base md:text-lg font-medium text-espresso italic leading-relaxed pt-1">
+              “No te acompaño desde lo que leí en un libro. Te acompaño desde mi propia reconstrucción, tras 21 años como cuidadora primaria y todo lo que atravesé para volver a mí.”
+            </blockquote>
+
+            <div class="pt-3 border-t border-sombra/30 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-espresso text-sm">Jen Obando</p>
+                <p class="text-xs text-espresso/60">Terapeuta Emocional · Gestalt Integrativo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>

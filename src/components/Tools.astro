@@ -1,0 +1,447 @@
+---
+import { Image } from "astro:assets";
+import focusing from "../assets/images/focusing-betal.png";
+
+const tools = [
+  {
+    name: "Hakomi",
+    summary: "Escucha somática y mindfulness corporal.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80",
+    imageAlt: "Presencia somática y mindfulness en calma",
+    description:
+      "Atención plena a lo que sientes en el cuerpo para descubrir y soltar miedos o reacciones automáticas guardadas con el tiempo.",
+  },
+  {
+    name: "Focusing",
+    summary: "Sensación sentida corporal sin palabras previas.",
+    image: focusing,
+    imageUrl: focusing.src,
+    imageAlt: "Conexión con la sensación sentida corporal",
+    description:
+      "Aprender a conectar con la sensación física interior sin palabras previas, dejando que el propio cuerpo guíe lo que necesita.",
+  },
+  {
+    name: "Terapia Centrada en la Persona",
+    summary: "Empatía profunda basada en Carl Rogers.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=700&q=80",
+    imageAlt: "Diálogo terapéutico empático y escucha activa",
+    description:
+      "Espacio de empatía y aceptación incondicional basada en Carl Rogers. Tú eres la sabia de tu vida y yo te acompaño sin juzgarte.",
+  },
+  {
+    name: "IFS — Sistemas Familiares Internos",
+    summary: "Armonización de partes internas en conflicto.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=700&q=80",
+    imageAlt: "Integración de partes internas y autorreflexión compasiva",
+    description:
+      "Comprender y armonizar las partes internas en conflicto (miedos, exigencias, deseos) desde un Yo esencial y compasivo.",
+  },
+  {
+    name: "Gestalt Integrativo",
+    summary: "Devolverte a la totalidad en el aquí y ahora.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=700&q=80",
+    imageAlt: "Integración holística en el aquí y el ahora",
+    description:
+      "No busca 'arreglarte' como si estuvieras rota, sino devolverte a la totalidad de lo que eres, alineando cuerpo, emoción y acción.",
+  },
+];
+
+// Duplicamos las 5 herramientas para formar un cilindro 3D perfecto de 10 facetas
+const cylinderItems = [...tools, ...tools];
+---
+
+<section id="herramientas" class="py-20 md:py-28 bg-crema border-y border-sombra/40 relative overflow-hidden select-none">
+  <!-- Acentos orgánicos neutros -->
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-celeste/10 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-celeste-light/50 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10 mb-4 sm:mb-6">
+    <!-- Encabezado con controles interactivos -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-espresso mb-4">
+          Herramientas terapéuticas explicadas
+        </h2>
+        <p class="text-espresso/80 text-base md:text-lg leading-relaxed">
+          Cada herramienta es elegida intencionalmente según la persona, su momento vital y lo que emerge orgánicamente en sesión: sin teorías frías, respetando tu sabiduría interior.
+        </p>
+      </div>
+
+      <!-- Indicador 3D y botones de giro -->
+      <div class="flex items-center gap-3 self-start md:self-end flex-shrink-0">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crema/90 border border-sombra/60 text-[11px] font-medium text-espresso/70 shadow-xs">
+          <span class="w-2 h-2 rounded-full bg-celeste animate-pulse"></span>
+          <span>Cilindro 3D Circular</span>
+        </span>
+        
+        <div class="flex items-center gap-1.5">
+          <button
+            id="cylinder-prev-btn"
+            type="button"
+            class="w-10 h-10 rounded-full bg-crema border border-sombra/60 flex items-center justify-center text-espresso hover:bg-celeste hover:text-crema hover:border-celeste transition-all duration-200 shadow-xs"
+            aria-label="Rotar cilindro hacia la izquierda"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <button
+            id="cylinder-next-btn"
+            type="button"
+            class="w-10 h-10 rounded-full bg-crema border border-sombra/60 flex items-center justify-center text-espresso hover:bg-celeste hover:text-crema hover:border-celeste transition-all duration-200 shadow-xs"
+            aria-label="Rotar cilindro hacia la derecha"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Escenario 3D (CircularCarousel Cylinder Preset adaptado a CSS 3D puro) -->
+  <div
+    id="cylinder-stage"
+    class="relative w-full h-[580px] sm:h-[620px] md:h-[660px] flex items-center justify-center overflow-hidden cylinder-viewport"
+  >
+    <!-- Niebla de profundidad / Vignette suave -->
+    <div class="absolute inset-0 pointer-events-none cylinder-depth-overlay z-20"></div>
+
+    <!-- Eje giratorio del Cilindro 3D -->
+    <div id="cylinder-rotator" class="cylinder-rotator">
+      {cylinderItems.map((tool, index) => (
+        <div
+          class="cylinder-card bg-crema p-5 sm:p-6 rounded-2xl border border-sombra/60 shadow-sm flex flex-col justify-between cursor-pointer"
+          data-index={index}
+        >
+          <div class="flex flex-col flex-1">
+            <!-- 1. Encabezado y Título -->
+            <div class="flex items-center justify-between mb-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-celeste"></span>
+              <span class="text-[10px] font-mono uppercase tracking-wider text-espresso/45">
+                0{(index % tools.length) + 1} / 0{tools.length}
+              </span>
+            </div>
+
+            <h3 class="text-base sm:text-lg font-bold text-espresso mb-1 leading-snug">
+              {tool.name}
+            </h3>
+
+            <p class="text-xs font-medium text-espresso/70 italic mb-2.5 line-clamp-1">
+              {tool.summary}
+            </p>
+
+            <!-- 2. Imagen de la herramienta -->
+            <div class="relative w-full h-32 sm:h-36 rounded-xl overflow-hidden bg-celeste-light/20 border border-sombra/40 mb-3 flex-shrink-0">
+              {tool.image ? (
+                <Image
+                  src={tool.image}
+                  alt={tool.imageAlt}
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105 pointer-events-none"
+                  draggable="false"
+                />
+              ) : (
+                <img
+                  src={tool.imageUrl}
+                  alt={tool.imageAlt}
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105 pointer-events-none"
+                  loading="lazy"
+                  draggable="false"
+                />
+              )}
+              <div class="absolute inset-0 bg-gradient-to-t from-espresso/15 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+            <!-- 3. Descripción -->
+            <p class="text-espresso/75 text-xs sm:text-[13px] leading-relaxed line-clamp-3 sm:line-clamp-4">
+              {tool.description}
+            </p>
+          </div>
+
+          <!-- Pie de tarjeta -->
+          <div class="mt-3 pt-2.5 border-t border-sombra/25 flex items-center justify-between text-[11px] text-espresso/60 flex-shrink-0">
+            <span>Metodología vivencial</span>
+            <svg class="w-3.5 h-3.5 text-celeste" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Instrucción interactiva sutil -->
+  <div class="max-w-6xl mx-auto px-6 text-center -mt-2 relative z-10">
+    <p class="text-xs text-espresso/50 italic">
+      Arrastra en horizontal para girar el cilindro 3D · Haz clic en cualquier tarjeta para enfocarla al frente
+    </p>
+  </div>
+</section>
+
+<style>
+  /* Escenario con perspectiva 3D profunda (2500px como en React Bits) */
+  .cylinder-viewport {
+    perspective: 2500px;
+    perspective-origin: 50% 50%;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+
+  .cylinder-viewport.is-dragging {
+    cursor: grabbing;
+  }
+
+  /* Desvanecimiento de profundidad lateral neutro acorde al fondo blanco */
+  .cylinder-depth-overlay {
+    background: radial-gradient(
+      ellipse at 50% 50%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.4) 85%,
+      rgba(255, 255, 255, 0.95) 100%
+    );
+  }
+
+  /* Eje del cilindro con preservación 3D y ángulo tilt de -5deg */
+  .cylinder-rotator {
+    position: relative;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* Tarjeta situada en el perímetro cilíndrico */
+  .cylinder-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 260px;
+    height: 410px;
+    margin-top: -205px;
+    margin-left: -130px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity, filter;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cylinder-card:hover {
+    border-color: #3B82A6;
+    box-shadow: 0 14px 28px -6px rgba(26, 43, 60, 0.12);
+  }
+
+  @media (min-width: 768px) {
+    .cylinder-card {
+      width: 280px;
+      height: 430px;
+      margin-top: -215px;
+      margin-left: -140px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .cylinder-card {
+      width: 230px;
+      height: 380px;
+      margin-top: -190px;
+      margin-left: -115px;
+    }
+  }
+</style>
+
+<script>
+  function initCircularCylinder() {
+    const stage = document.getElementById("cylinder-stage");
+    const rotator = document.getElementById("cylinder-rotator");
+    const cards = document.querySelectorAll<HTMLElement>(".cylinder-card");
+    const prevBtn = document.getElementById("cylinder-prev-btn");
+    const nextBtn = document.getElementById("cylinder-next-btn");
+
+    if (!stage || !rotator || cards.length === 0) return;
+
+    const totalCards = cards.length;
+    const angleStep = 360 / totalCards; // 36° por tarjeta
+    const tilt = -5; // React Bits tilt={-5}
+
+    // Radio calculado según ancho de pantalla para mantener la separación armónica entre tarjetas
+    function getRadius() {
+      if (window.innerWidth < 640) return 380;
+      if (window.innerWidth < 1024) return 440;
+      return 490;
+    }
+
+    let radius = getRadius();
+    let currentRotation = 0;
+    let targetRotation = 0;
+    let isHovered = false;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartRotation = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = performance.now();
+    let animFrameId: number;
+
+    // Disponer las tarjetas en el perímetro del cilindro 3D
+    function layoutCards() {
+      radius = getRadius();
+      cards.forEach((card, index) => {
+        const baseAngle = index * angleStep;
+        card.dataset.baseAngle = String(baseAngle);
+        card.style.transform = `rotateY(${baseAngle}deg) translateZ(${radius}px)`;
+      });
+    }
+
+    // Actualizar transformaciones 3D, depthFade e interactividad
+    function render() {
+      rotator.style.transform = `rotateX(${tilt}deg) rotateY(${currentRotation}deg)`;
+
+      cards.forEach((card) => {
+        const baseAngle = parseFloat(card.dataset.baseAngle || "0");
+        // Ángulo relativo con respecto a la cámara frontal (0°)
+        let relativeAngle = (baseAngle + currentRotation) % 360;
+        if (relativeAngle < 0) relativeAngle += 360;
+
+        // Coseno del ángulo para calcular profundidad y escala
+        const rad = (relativeAngle * Math.PI) / 180;
+        const cos = Math.cos(rad); // 1 = enfrente, -1 = atrás
+
+        if (cos > 0) {
+          // Hemisferio frontal visible: nítido, luminoso y clicable
+          const depth = Math.pow(cos, 1.2);
+          card.style.opacity = `${(0.45 + 0.55 * depth).toFixed(2)}`;
+          card.style.filter = `brightness(${(0.85 + 0.15 * depth).toFixed(2)})`;
+          card.style.zIndex = String(Math.round(100 + cos * 50));
+          card.style.pointerEvents = cos > 0.65 ? "auto" : "none";
+        } else {
+          // Hemisferio trasero: desvanecido y no clicable
+          card.style.opacity = "0.18";
+          card.style.filter = "brightness(0.65) blur(1px)";
+          card.style.zIndex = "10";
+          card.style.pointerEvents = "none";
+        }
+      });
+    }
+
+    // Bucle continuo de animación (drift + momentum + snap)
+    function loop(currentTime: number) {
+      const dt = Math.min((currentTime - lastTime) / 1000, 0.1);
+      lastTime = currentTime;
+
+      if (!isDragging) {
+        if (Math.abs(velocity) > 0.05) {
+          // Inercia con momentum suave (0.6 aprox)
+          currentRotation += velocity;
+          velocity *= 0.12;
+          targetRotation = currentRotation;
+        } else {
+          velocity = 0;
+          // React Bits: autoplay="drift" hacia la izquierda
+          if (!isHovered) {
+            targetRotation -= 0.055; // Velocidad de drift pausada, serena y contemplativa
+          }
+          // Interpolación suave hacia targetRotation
+          currentRotation += (targetRotation - currentRotation) * 0.08;
+        }
+      }
+
+      render();
+      animFrameId = requestAnimationFrame(loop);
+    }
+
+    // Inicializar disposición
+    layoutCards();
+    render();
+    lastTime = performance.now();
+    animFrameId = requestAnimationFrame(loop);
+
+    // Ajuste en cambio de tamaño de ventana
+    window.addEventListener("resize", () => {
+      layoutCards();
+      render();
+    });
+
+    // Pausa al pasar el cursor (pauseOnHover)
+    stage.addEventListener("mouseenter", () => {
+      isHovered = true;
+    });
+    stage.addEventListener("mouseleave", () => {
+      isHovered = false;
+      if (isDragging) {
+        isDragging = false;
+        stage.classList.remove("is-dragging");
+      }
+    });
+
+    // Interacción arrastrable (draggable)
+    stage.addEventListener("pointerdown", (e) => {
+      isDragging = true;
+      stage.classList.add("is-dragging");
+      startX = e.clientX;
+      lastX = e.clientX;
+      dragStartRotation = currentRotation;
+      velocity = 0;
+    });
+
+    window.addEventListener("pointermove", (e) => {
+      if (!isDragging) return;
+      const dx = e.clientX - startX;
+      // Sensibilidad de giro
+      currentRotation = dragStartRotation + dx * 0.28;
+      targetRotation = currentRotation;
+      velocity = (e.clientX - lastX) * 0.28;
+      lastX = e.clientX;
+    });
+
+    window.addEventListener("pointerup", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      stage.classList.remove("is-dragging");
+    });
+
+    window.addEventListener("pointercancel", () => {
+      if (!isDragging) return;
+      isDragging = false;
+      stage.classList.remove("is-dragging");
+    });
+
+    // Clic para enfocar tarjeta (focusOnClick)
+    cards.forEach((card) => {
+      card.addEventListener("click", () => {
+        const baseAngle = parseFloat(card.dataset.baseAngle || "0");
+        // Calcular el giro más corto para centrar esta tarjeta en 0°
+        let diff = (-baseAngle - currentRotation) % 360;
+        if (diff > 180) diff -= 360;
+        if (diff < -180) diff += 360;
+        targetRotation = currentRotation + diff;
+      });
+    });
+
+    // Botones de rotación manual (Siguiente / Anterior)
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        targetRotation -= angleStep;
+        velocity = 0;
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        targetRotation += angleStep;
+        velocity = 0;
+      });
+    }
+  }
+
+  // Ejecutar al cargar la página o al navegar en Astro
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCircularCylinder);
+  } else {
+    initCircularCylinder();
+  }
+</script>

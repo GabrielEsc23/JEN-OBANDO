@@ -1,0 +1,78 @@
+---
+const skills = [
+  {
+    icon: "👂",
+    title: "Escucha sin ruido propio",
+    subtitle: "Presencia limpia y consciente",
+    description:
+      "Presencia constante para sostener tu dolor con respeto, sin juzgarte, sin consejos vacíos y sin mezclar mi historia.",
+  },
+  {
+    icon: "🗝",
+    title: "La pregunta exacta",
+    subtitle: "Sensibilidad y oportunidad",
+    description:
+      "Saber cuándo hacer una pregunta que abra claridad y cuándo permanecer en silencio respetuoso a tu lado.",
+  },
+  {
+    icon: "🌊",
+    title: "Sintonía con lo que sientes",
+    subtitle: "Más allá de las palabras",
+    description:
+      "Atención a tu mirada, tu respiración y tus silencios cuando las palabras no alcanzan para expresar lo que vives.",
+  },
+  {
+    icon: "🍃",
+    title: "Sostener sin prisa por arreglar",
+    subtitle: "Confianza en tu ritmo orgánico",
+    description:
+      "Confianza plena en tu sabiduría interior y en que tu proceso florecerá a su propio ritmo en un espacio seguro.",
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-lavanda-light/60 border-y border-lavanda/25 relative overflow-hidden">
+  <!-- Acentos orgánicos ambientales -->
+  <div class="absolute -top-20 -left-20 w-80 h-80 rounded-full bg-lavanda/20 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-celeste-light/40 blur-3xl pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <!-- Encabezado -->
+    <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-espresso mb-4">
+        Habilidades que no aprendí solo en libros
+      </h2>
+      <p class="text-espresso/75 text-base md:text-lg leading-relaxed">
+        Cualidades forjadas a través de la propia vida vivida, mi reconstrucción personal y más de dos décadas de vocación en el acompañamiento humano.
+      </p>
+    </div>
+
+    <!-- Grid de 4 habilidades -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {skills.map((skill) => (
+        <div class="bg-crema p-8 rounded-2xl border border-sombra/60 hover:border-lavanda transition-all duration-300 relative group shadow-xs hover:shadow-md">
+          <div class="flex items-start gap-4">
+            <div class="w-11 h-11 rounded-xl bg-lavanda-light/80 border border-lavanda/30 flex items-center justify-center flex-shrink-0 text-xl group-hover:scale-110 transition-transform">
+              {skill.icon}
+            </div>
+
+            <div class="space-y-2">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+                <h3 class="text-xl font-bold text-espresso group-hover:text-lavanda-dark transition-colors">
+                  {skill.title}
+                </h3>
+                <span class="text-xs uppercase tracking-wider text-lavanda-dark font-medium">
+                  · {skill.subtitle}
+                </span>
+              </div>
+
+              <p class="text-espresso/75 text-sm md:text-base leading-relaxed pt-1">
+                {skill.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
