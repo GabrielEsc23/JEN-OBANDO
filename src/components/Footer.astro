@@ -1,44 +1,69 @@
 ---
 const currentYear = 2026;
+
+const navLinks = [
+  { href: "#", label: "Inicio" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#gestalt", label: "Enfoque" },
+  { href: "#pilares", label: "Pilares" },
+  { href: "#herramientas", label: "Herramientas" },
+  { href: "#servicios", label: "Servicios" },
+  { href: "#contacto", label: "Contacto" },
+];
 ---
 
-<footer class="bg-[#F1F6FA] border-t border-sombra/40 py-12 md:py-16 text-espresso/70 text-xs">
-  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
-    
-    <!-- Branding & Info -->
-    <div class="text-center md:text-left space-y-1">
-      <p class="text-sm font-bold text-espresso tracking-tight">
-        JEN OBANDO
-      </p>
-      <p class="text-xs text-espresso/60">
-        Terapeuta Emocional · Gestalt Integrativo · Consciencia Somática
-      </p>
-      <p class="text-[11px] text-espresso/50 pt-1">
-        Guayaquil, Ecuador
-      </p>
+<footer class="bg-[#12221a] text-ivory/80 border-t border-gold/20 py-16 lg:py-20 relative overflow-hidden font-sans">
+  <div class="max-w-[1360px] mx-auto px-6 lg:px-12">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-10 border-b border-gold/15 pb-12">
+      
+      <!-- Logo y Presentación -->
+      <div class="text-center md:text-left space-y-2">
+        <a href="#" class="inline-block group">
+          <span class="font-script text-3xl sm:text-4xl text-ivory tracking-wide block transition-colors group-hover:text-gold">
+            Jen Obando
+          </span>
+          <span class="text-[9px] uppercase tracking-[0.24em] text-gold/90 font-semibold block mt-0.5">
+            TERAPEUTA EMOCIONAL · GESTALT INTEGRATIVO
+          </span>
+        </a>
+        <p class="text-xs text-ivory/60 max-w-sm pt-1">
+          Acompañamiento vivencial hacia la totalidad de lo que eres, desde el cuerpo, la emoción y la consciencia.
+        </p>
+      </div>
+
+      <!-- Enlaces Rápidos de Navegación -->
+      <nav class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-3 text-xs tracking-wider uppercase font-medium text-ivory/75">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="hover:text-gold transition-colors duration-200"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Botón Volver Arriba -->
+      <div class="flex-shrink-0">
+        <a
+          href="#"
+          class="w-11 h-11 rounded-full border border-gold/40 bg-forest/80 hover:bg-gold hover:text-forest hover:border-gold flex items-center justify-center text-ivory transition-all duration-300 shadow-xs"
+          aria-label="Volver arriba"
+        >
+          <svg class="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </a>
+      </div>
+
     </div>
 
-    <!-- Quick Links -->
-    <nav class="flex flex-wrap justify-center gap-6 text-xs text-espresso/75">
-      <a href="#sobre-jen" class="hover:text-celeste transition-colors">Mi enfoque</a>
-      <a href="#pilares" class="hover:text-celeste transition-colors">Pilares</a>
-      <a href="#herramientas" class="hover:text-celeste transition-colors">Herramientas</a>
-      <a href="#servicios" class="hover:text-celeste transition-colors">Servicios</a>
-      <a href="#contacto" class="hover:text-celeste transition-colors">Contacto</a>
-    </nav>
-
-    <!-- Back to top & copyright -->
-    <div class="flex flex-col items-center md:items-end gap-3">
-      <a
-        href="#"
-        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-crema hover:bg-celeste-light/60 border border-sombra/50 text-espresso hover:text-celeste-dark text-[11px] font-medium transition-colors"
-      >
-        <span>Volver arriba</span>
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-        </svg>
-      </a>
-      <p class="text-[11px] text-espresso/50 text-center md:text-right">
+    <!-- Pie de Derechos y Locación -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-ivory/50">
+      <p>
+        Quito, Ecuador
+      </p>
+      <p>
         © {currentYear} Jen Obando · Todos los derechos reservados.
       </p>
     </div>

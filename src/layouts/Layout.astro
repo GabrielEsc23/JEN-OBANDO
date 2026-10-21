@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title = "Jen Obando | Terapeuta Emocional · Gestalt Integrativo",
-  description = "El secreto no está en entenderlo todo... está en volver a sentir. Acompañamiento terapéutico con enfoque Gestalt Integrativo: Consciencia, Presencia y Coherencia en El Porvenir, Guayaquil, Ecuador.",
+  description = "El secreto no está en entenderlo todo... está en volver a sentir. Acompañamiento terapéutico con enfoque Gestalt Integrativo: Consciencia, Presencia y Coherencia en Quito, Ecuador.",
 } = Astro.props;
 ---
 
@@ -20,25 +20,78 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <!-- Google Fonts: Public Sans -->
+    <!-- Google Fonts: Cormorant Garamond & DM Sans & Alex Brush -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-crema text-espresso font-sans antialiased selection:bg-celeste/20 selection:text-espresso min-h-screen flex flex-col">
+  <body class="bg-cream text-charcoal font-sans antialiased selection:bg-gold/30 selection:text-forest min-h-screen flex flex-col">
     <slot />
   </body>
 </html>
 
 <style is:global>
-  /* Base typography adjustments */
+  :root {
+    /* Colors */
+    --color-cream: #F5F0E7;
+    --color-ivory: #FBF8F2;
+    --color-forest: #172A21;
+    --color-moss: #263B2D;
+    --color-gold: #B89A6A;
+    --color-earth: #956B4E;
+    --color-charcoal: #292923;
+    --color-muted: #77746C;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-heading: "Cormorant Garamond", Georgia, serif;
+    --font-body: "DM Sans", Arial, sans-serif;
+    --font-signature: "Alex Brush", cursive;
+
+    /* Layout */
+    --container-max: 1440px;
+    --reading-max: 720px;
+    --gutter: clamp(1.25rem, 5.5vw, 5.5rem);
+    --section-space: clamp(4rem, 8vw, 8rem);
+
+    /* Borders */
+    --border-subtle: 1px solid rgba(41, 41, 35, 0.08);
+    --border-gold: 1px solid rgba(184, 154, 106, 0.45);
+
+    /* Radius */
+    --radius-card: 1.25rem;
+    --radius-image: 1.5rem;
+    --radius-pill: 9999px;
+
+    /* Shadows */
+    --shadow-card: 0 12px 32px rgba(31, 38, 30, 0.06);
+    --shadow-floating: 0 18px 50px rgba(20, 30, 23, 0.12);
+
+    /* Motion */
+    --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 200ms;
+    --duration-reveal: 600ms;
+  }
+
   body {
-    background-color: #FFFFFF;
-    color: #1A2B3C;
-    font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-heading);
+  }
+
+  .font-signature {
+    font-family: var(--font-signature);
   }
 
   /* Custom subtle scrollbar */
@@ -46,13 +99,30 @@ const {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #F8FAFC;
+    background: #F5F0E7;
   }
   ::-webkit-scrollbar-thumb {
-    background: #D1DFEB;
+    background: #CEB489;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3B82A6;
+    background: #B89A6A;
+  }
+
+  /* Organic blob classes */
+  .organic-shape-1 {
+    border-radius: 38% 62% 55% 45% / 42% 38% 62% 58%;
+  }
+
+  .organic-shape-2 {
+    border-radius: 63% 37% 54% 46% / 44% 56% 44% 56%;
+  }
+
+  .organic-shape-3 {
+    border-radius: 45% 55% 60% 40% / 50% 45% 55% 50%;
+  }
+
+  .organic-arch-bottom {
+    border-radius: 18px 18px 45% 45% / 18px 18px 18px 18px;
   }
 </style>

@@ -1,100 +1,82 @@
 ---
 import { Image } from "astro:assets";
 import bannerHero from "../assets/images/BANNER HERO.jpeg";
-import chiguaguaImg from "../assets/images/chiguagua.png";
-import persaImg from "../assets/images/persa.png";
 ---
 
-<section class="relative pt-12 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-crema via-crema to-celeste-light/40">
-  <!-- Subtle organic background accents -->
-  <div class="absolute top-1/4 -right-24 w-96 h-96 rounded-full bg-celeste/25 blur-3xl -z-10 pointer-events-none"></div>
-  <div class="absolute bottom-10 -left-20 w-80 h-80 rounded-full bg-salvia/20 blur-3xl -z-10 pointer-events-none"></div>
+<section class="relative min-h-[680px] lg:min-h-[760px] pt-8 pb-16 md:py-20 bg-cream overflow-hidden flex items-center">
+  <!-- Subtle warm natural ambient background glow -->
+  <div class="absolute top-1/3 right-10 w-[500px] h-[500px] rounded-full bg-gold/15 blur-3xl -z-10 pointer-events-none"></div>
+  <div class="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-earth/10 blur-3xl -z-10 pointer-events-none"></div>
 
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
       
-      <!-- Columna de texto -->
-      <div class="lg:col-span-7 text-left space-y-6">
-        <!-- Título principal -->
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-espresso leading-[1.14]">
-          El secreto no está en entenderlo todo... <br class="hidden sm:inline" />
-          <span class="relative inline-block mt-1">
-            está en volver a sentir.
-            <svg class="absolute -bottom-2 left-0 w-full h-3 text-celeste/70" viewBox="0 0 100 12" preserveAspectRatio="none">
-              <path d="M0,8 Q50,12 100,6" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"></path>
-            </svg>
+      <!-- Columna de Titular y CTA (en móvil va después de la foto) -->
+      <div class="order-2 lg:order-1 lg:col-span-6 space-y-7 text-left z-10">
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2">
+          <span class="text-[11px] sm:text-xs font-semibold tracking-[0.22em] uppercase text-earth">
+            JEN OBANDO | TERAPEUTA EMOCIONAL
           </span>
+        </div>
+
+        <!-- H1 Hero Editorial -->
+        <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.08] text-charcoal font-normal">
+          El secreto no está <br />
+          en entenderlo todo... <br />
+          <span class="italic font-normal">está en volver a sentir.</span>
         </h1>
 
-        <!-- Tagline -->
-        <p class="text-xs md:text-sm font-semibold tracking-widest uppercase text-celeste-dark">
-          Enfoque Gestalt Integrativo · Consciencia, Presencia y Coherencia
-        </p>
-
-        <!-- Descripción real -->
-        <p class="text-base md:text-lg text-espresso/80 leading-relaxed font-normal max-w-xl">
+        <!-- Subtítulo / Descripción -->
+        <p class="text-base sm:text-lg text-charcoal/80 leading-relaxed font-normal max-w-lg">
           Acompaño a mujeres a vivir transformaciones reales desde el cuerpo, las emociones y la experiencia vivida. Sin teorías frías de libro: desde el camino recorrido, con los pies en la tierra.
         </p>
 
-        <!-- Botones de acción -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+        <!-- CTA Principal -->
+        <div class="pt-2">
           <a
-            href="#servicios"
-            class="inline-flex items-center justify-center px-7 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wider uppercase bg-espresso text-crema hover:bg-celeste-dark hover:shadow-md transition-all duration-200"
+            href="#contacto"
+            class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-forest text-ivory hover:bg-moss hover:shadow-floating transition-all duration-300 font-medium text-sm tracking-wide group shadow-card"
           >
-            Ver servicios
-          </a>
-          <a
-            href="#sobre-jen"
-            class="inline-flex items-center justify-center px-7 py-3 rounded-full text-xs md:text-sm font-semibold tracking-wider uppercase bg-crema text-espresso border border-sombra hover:border-celeste hover:text-celeste-dark hover:bg-celeste-light/40 transition-all duration-200"
-          >
-            Sobre Jen
+            <span>Agendar una consulta</span>
+            <span class="text-base transition-transform group-hover:translate-x-1.5 duration-200">→</span>
           </a>
         </div>
       </div>
 
-      <!-- Columna de imagen principal -->
-      <div class="lg:col-span-5">
-        <div class="relative mx-auto max-w-md lg:max-w-none">
-          <!-- Fondo decorativo tipo marco artesanal -->
-          <div class="absolute -inset-3 bg-celeste-light/60 rounded-3xl border border-celeste/30 -rotate-1 pointer-events-none"></div>
-          
-          <!-- Fotografía principal optimizada con Astro Assets -->
-          <div class="relative z-10 overflow-hidden rounded-2xl shadow-md border border-sombra/60 aspect-[4/5] bg-celeste-light/20">
+      <!-- Columna de Fotografía (en móvil va primero) -->
+      <div class="order-1 lg:order-2 lg:col-span-6 relative flex justify-center lg:justify-end">
+        
+        <!-- Contenedor de la fotografía con recorte orgánico y atmósfera cálida -->
+        <div class="relative w-full max-w-md lg:max-w-lg">
+          <!-- Marco sutil orgánico de fondo -->
+          <div class="absolute -inset-2 sm:-inset-3 bg-ivory/80 rounded-[38%_62%_55%_45%_/_42%_38%_62%_58%] border border-charcoal/8 shadow-card -z-10 transform -rotate-1 pointer-events-none"></div>
+
+          <!-- Imagen con recorte orgánico protagonista -->
+          <div class="relative overflow-hidden rounded-[38%_62%_55%_45%_/_42%_38%_62%_58%] border border-charcoal/10 shadow-floating aspect-[4/5] bg-ivory">
             <Image
               src={bannerHero}
-              alt="Jen Obando — Terapeuta Emocional con enfoque Gestalt Integrativo"
-              class="w-full h-full object-cover object-center"
+              alt="Jen Obando — El secreto no está en entenderlo todo, está en volver a sentir"
+              class="w-full h-full object-cover object-center filter saturate-[0.98] contrast-[1.02]"
               loading="eager"
             />
-          </div>
-
-          <!-- Distintivo flotante con los iconos de Chihuahua y Persa -->
-          <div class="absolute -bottom-3.5 -left-3 sm:-bottom-4 sm:-left-4 z-20 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-2xl border border-celeste/30 shadow-md flex items-center gap-3 transition-transform hover:scale-105">
-            <div class="flex items-center gap-1.5">
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-celeste-light/40 p-1 border border-celeste/20 flex items-center justify-center overflow-hidden">
-                <Image
-                  src={chiguaguaImg}
-                  alt="Chihuahua"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-              <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-celeste-light/40 p-1 border border-celeste/20 flex items-center justify-center overflow-hidden">
-                <Image
-                  src={persaImg}
-                  alt="Persa"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            <div class="flex flex-col text-left">
-              <span class="text-xs font-bold text-espresso leading-tight">
-                💕
-              </span>
-              
-            </div>
+            <!-- Gradiente cálido sutil de luz solar -->
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/20 via-transparent to-transparent pointer-events-none"></div>
           </div>
         </div>
+
+        <!-- Indicador vertical flotante en el lateral derecho: Consciencia / Presencia / Coherencia -->
+        <div class="hidden xl:flex flex-col items-center gap-4 absolute -right-8 top-1/4 text-muted/80 text-[11px] tracking-[0.2em] uppercase font-sans select-none pointer-events-none">
+          <span class="[writing-mode:vertical-rl] rotate-180">Consciencia</span>
+          <span class="w-1 h-1 rounded-full bg-gold"></span>
+          <span class="[writing-mode:vertical-rl] rotate-180">Presencia</span>
+          <span class="w-1 h-1 rounded-full bg-gold"></span>
+          <span class="[writing-mode:vertical-rl] rotate-180">Coherencia</span>
+        </div>
+
+        <!-- Indicador inferior: Desliza para explorar -->
+       
+
       </div>
 
     </div>
