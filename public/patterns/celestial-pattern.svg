@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <g fill="none" stroke="#8C806D" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Estrella -->
+    <path d="M35 28 L38 37 L47 40 L38 43 L35 52 L32 43 L23 40 L32 37 Z"/>
+    <!-- Destello -->
+    <path d="M125 23 V41 M116 32 H134"/>
+    <!-- Luna creciente -->
+    <path d="M91 76 A13 13 0 1 0 108 91 A10 10 0 0 1 91 76 Z"/>
+    <!-- Sol -->
+    <circle cx="37" cy="125" r="9"/>
+    <path d="M37 110 V106 M37 144 V140 M22 125 H18 M56 125 H52 M26 114 L23 111 M48 136 L51 139 M48 114 L51 111 M26 136 L23 139"/>
+    <!-- Pequeños destellos -->
+    <path d="M139 120 L142 127 L149 130 L142 133 L139 140 L136 133 L129 130 L136 127 Z"/>
+    <circle cx="88" cy="143" r="2"/>
+  </g>
+</svg>

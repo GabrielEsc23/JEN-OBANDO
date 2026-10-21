@@ -49,9 +49,15 @@ const tools = [
 ];
 ---
 
-<section id="herramientas" class="py-24 md:py-32 bg-cream relative overflow-hidden">
+<section id="herramientas" class="py-24 md:py-32 bg-cream relative overflow-hidden isolate">
+  <!-- Patrón repetido celestial sutil (Sol, Luna, Estrellas y Destellos) -->
+  <div
+    class="absolute inset-0 bg-[url('/patterns/celestial-pattern.svg')] bg-repeat opacity-[0.20] pointer-events-none -z-10 [background-size:180px_180px]"
+    aria-hidden="true"
+  ></div>
+
   <!-- Sutiles líneas botánicas de fondo -->
-  <div class="absolute top-12 right-0 w-80 h-80 opacity-20 pointer-events-none text-gold">
+  <div class="absolute top-12 right-0 w-80 h-80 opacity-15 pointer-events-none text-gold -z-10">
     <svg viewBox="0 0 200 200" fill="none" class="w-full h-full stroke-current" stroke-width="0.8">
       <path d="M100 180 C120 130 180 110 180 50 C140 70 120 100 100 180 Z" />
       <path d="M100 180 C80 130 20 110 20 50 C60 70 80 100 100 180 Z" />

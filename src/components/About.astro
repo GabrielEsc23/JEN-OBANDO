@@ -30,9 +30,15 @@ const qualities = [
 ];
 ---
 
-<section id="sobre-mi" class="py-24 md:py-32 bg-cream relative overflow-hidden">
+<section id="sobre-mi" class="py-24 md:py-32 bg-cream relative overflow-hidden isolate">
+  <!-- Patrón repetido celestial sutil (Sol, Luna, Estrellas y Destellos) -->
+  <div
+    class="absolute inset-0 bg-[url('/patterns/celestial-pattern.svg')] bg-repeat opacity-[0.20] pointer-events-none -z-10 [background-size:180px_180px]"
+    aria-hidden="true"
+  ></div>
+
   <!-- Acentos decorativos de fondo -->
-  <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-forest/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-forest/5 blur-3xl pointer-events-none -z-10"></div>
 
   <div class="max-w-[1360px] mx-auto px-6 lg:px-12 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
