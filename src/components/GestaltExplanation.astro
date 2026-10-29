@@ -26,7 +26,7 @@ import therapySpaceImg from "../assets/images/FullSizeRender.jpeg";
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
       
       <!-- Columna izquierda: Imagen con silueta orgánica curva -->
-      <div class="lg:col-span-6 flex justify-center">
+      <div class="lg:col-span-6 flex justify-center reveal-on-scroll" data-animate="animate__fadeInLeft" data-duration="1.2s">
         <div class="relative w-full max-w-md lg:max-w-lg">
           <!-- Fondo decorativo tipo sombra orgánica -->
           <div class="absolute -inset-2 bg-ivory rounded-[45%_55%_60%_40%_/_50%_45%_55%_50%] border border-charcoal/8 shadow-card -z-10 transform rotate-2 pointer-events-none"></div>
@@ -45,21 +45,16 @@ import therapySpaceImg from "../assets/images/FullSizeRender.jpeg";
 
       <!-- Columna derecha: Explicación y botón -->
       <div class="lg:col-span-6 space-y-6 text-left">
-        
-
         <!-- Titular H2 Editorial -->
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-[1.12] text-charcoal font-normal">
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[46px] leading-[1.12] text-charcoal font-normal reveal-on-scroll" data-animate="animate__fadeInRight" data-delay="100ms">
           ¿Qué es la Terapia <br class="hidden sm:inline" />
           Gestalt Integrativa?
         </h2>
 
         <!-- Párrafo explicativo fiel al mockup -->
-        <p class="text-base sm:text-lg text-charcoal/80 leading-relaxed font-normal max-w-xl">
+        <p class="text-base sm:text-lg text-charcoal/80 leading-relaxed font-normal max-w-xl reveal-on-scroll" data-animate="animate__fadeInRight" data-delay="250ms">
           Es una forma de acompañamiento que no busca "arreglarte" como si estuvieras rota, sino devolverte a la totalidad de lo que eres. Trabajamos en el aquí y ahora, escuchando lo que tu cuerpo expresa (tensiones, nudos, cansancio) para alinear lo que piensas, sientes y haces mediante un espacio seguro y sin juicios.
         </p>
-
-        
-        
       </div>
 
     </div>

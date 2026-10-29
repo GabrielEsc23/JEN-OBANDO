@@ -82,7 +82,7 @@ const services = [
   <div class="max-w-[1360px] mx-auto px-6 lg:px-12 relative z-10">
     
     <!-- Encabezado de Sección -->
-    <div class="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+    <div class="max-w-2xl mx-auto text-center mb-16 md:mb-20 reveal-on-scroll" data-animate="animate__fadeInUp">
       <span class="text-xs uppercase tracking-[0.24em] font-sans font-semibold text-gold block mb-3">
         ESPACIOS DE ACOMPAÑAMIENTO
       </span>
@@ -96,8 +96,12 @@ const services = [
 
     <!-- Grid de 3 Columnas de Servicios con bordes curvos y tarjetas en Ivory -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-      {services.map((item) => (
-        <article class="bg-ivory text-charcoal rounded-[28px] border border-gold/30 overflow-hidden flex flex-col justify-between shadow-2xl hover:border-gold/60 transition-all duration-300 group">
+      {services.map((item, index) => (
+        <article
+          class="bg-ivory text-charcoal rounded-[28px] border border-gold/30 overflow-hidden flex flex-col justify-between shadow-2xl hover:border-gold/60 transition-all duration-300 group reveal-on-scroll"
+          data-animate="animate__fadeInUp"
+          data-delay={`${index * 150 + 100}ms`}
+        >
           <div>
             <!-- Cabecera de Imagen con Arco Orgánico Inferior -->
             <div class="relative w-full aspect-[16/10] overflow-hidden bg-cream">

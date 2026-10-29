@@ -67,7 +67,7 @@ const tools = [
 
   <div class="max-w-[1360px] mx-auto px-6 lg:px-12 relative z-10">
     <!-- Encabezado Editorial -->
-    <div class="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+    <div class="max-w-2xl mx-auto text-center mb-16 md:mb-20 reveal-on-scroll" data-animate="animate__fadeInUp">
       <span class="text-xs uppercase tracking-[0.22em] font-sans font-semibold text-earth block mb-3">
         HERRAMIENTAS TERAPÉUTICAS
       </span>
@@ -81,8 +81,12 @@ const tools = [
 
     <!-- Grid de 4 Herramientas con siluetas orgánicas tipo Pebble -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 items-stretch">
-      {tools.map((tool) => (
-        <article class="group bg-ivory rounded-[24px] border border-charcoal/8 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-card hover:border-gold/40 hover:-translate-y-1">
+      {tools.map((tool, index) => (
+        <article
+          class="group bg-ivory rounded-[24px] border border-charcoal/8 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-card hover:border-gold/40 hover:-translate-y-1 reveal-on-scroll"
+          data-animate="animate__fadeInUp"
+          data-delay={`${index * 120 + 100}ms`}
+        >
           <div>
             <!-- Contenedor de Imagen con Silueta Orgánica / Pebble -->
             <div class="relative w-full aspect-[4/3] mb-6 overflow-hidden rounded-[38%_62%_55%_45%_/_42%_38%_62%_58%] border border-gold/30 bg-cream shadow-xs transition-transform duration-500 group-hover:scale-[1.03]">
