@@ -1,18 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import charlasImg from "../assets/images/CHARLAS.jpeg";
-import talleresImg from "../assets/images/FullSizeRender (1).jpeg";
+import talleresTerapeuticosImg from "../assets/images/talleres_terapeuticos.jpg";
 import terapiaImg from "../assets/images/TERAPIA INDIVIDUAL.jpeg";
 
-// Fotos intercambiadas según pedido:
-// Charlas ahora lleva talleresImg (FullSizeRender 1) y Talleres lleva charlasImg (CHARLAS)
 const services = [
   {
     number: "01",
     title: "Charlas de Desarrollo Humano",
     duration: "60–90 min · Presencial / Virtual",
-    image: talleresImg,
+    image: charlasImg,
     imageAlt: "Charla vivencial de desarrollo humano facilitada por Jen Obando",
+    imagePosition: "object-center",
     description:
       "Encuentros inspiradores y reflexivos donde exploramos el cuerpo como primer lenguaje, el maternaje consciente y el paso transformador de sobrevivir a elegir la propia vida.",
     points: [
@@ -27,8 +26,9 @@ const services = [
     number: "02",
     title: "Talleres Terapéuticos",
     duration: "3 horas · Grupos íntimos de 6 a 10 personas",
-    image: charlasImg,
+    image: talleresTerapeuticosImg,
     imageAlt: "Taller terapéutico vivencial en grupo guiado por Jen Obando",
+    imagePosition: "object-center",
     description:
       "Laboratorios vivenciales de movimiento somático, respiración conectada, meditación y reprogramación de patrones automáticos en un círculo seguro y contenido.",
     points: [
@@ -45,6 +45,7 @@ const services = [
     duration: "60–75 min · Presencial o Virtual",
     image: terapiaImg,
     imageAlt: "Sesión de terapia individual cálida con Jen Obando en Quito",
+    imagePosition: "object-[center_20%]",
     description:
       "Acompañamiento 1 a 1 bajo el enfoque Gestalt Integrativo. Un refugio confidencial para sentirte vista, escuchada y comprendida en tu ritmo y sin juicios.",
     points: [
@@ -108,7 +109,7 @@ const services = [
               <Image
                 src={item.image}
                 alt={item.imageAlt}
-                class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                class={`w-full h-full object-cover ${item.imagePosition || "object-center"} transition-transform duration-700 ease-out group-hover:scale-105`}
                 width={800}
                 height={500}
                 quality={90}

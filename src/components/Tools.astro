@@ -1,15 +1,17 @@
 ---
 import { Image } from "astro:assets";
-import focusingImg from "../assets/images/focusing-betal.png";
+import hakomiImg from "../assets/images/hakomi.jpg";
+import focusingImg from "../assets/images/focusing.jpg";
+import terapiaCentradaImg from "../assets/images/terapia_centrada_enlapersona.jpg";
 
 const tools = [
   {
     number: "01",
     name: "Hakomi",
     subtitle: "Escucha somática",
-    imageUrl:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Presencia somática y mindfulness corporal",
+    image: hakomiImg,
+    imageAlt: "Hakomi — Escucha somática y mindfulness corporal",
+    imagePosition: "object-center",
     description:
       "Atención plena a lo que sientes en el cuerpo para descubrir y transformar con compasión creencias profundas y patrones automáticos grabados en tu sistema nervioso.",
     tag: "Mindfulness somático",
@@ -20,6 +22,7 @@ const tools = [
     subtitle: "Sensación sentida",
     image: focusingImg,
     imageAlt: "Focusing — Conexión con la sensación sentida corporal",
+    imagePosition: "object-[center_15%]",
     description:
       "Aprender a conectar con la sensación física interior sin palabras previas, permitiendo que tu propio cuerpo guíe lo que necesita nombrar y transformar a su propio tiempo.",
     tag: "Sabiduría visceral",
@@ -28,9 +31,9 @@ const tools = [
     number: "03",
     name: "Terapia Centrada en la Persona",
     subtitle: "Carl Rogers",
-    imageUrl:
-      "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80",
-    imageAlt: "Espacio de escucha empática incondicional",
+    image: terapiaCentradaImg,
+    imageAlt: "Terapia Centrada en la Persona — Espacio de escucha empática incondicional",
+    imagePosition: "object-center",
     description:
       "Acompañamiento basado en la aceptación incondicional y la empatía profunda. Tú eres la persona experta en tu propia vida; yo te ofrezco un espacio sagrado donde reencontrarte.",
     tag: "Aceptación radical",
@@ -42,6 +45,7 @@ const tools = [
     imageUrl:
       "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=800&q=80",
     imageAlt: "Integración compasiva de partes internas",
+    imagePosition: "object-center",
     description:
       "Comprender, validar y armonizar las diferentes partes de tu psique (la crítica, la protectora, la herida) desde tu Yo Esencial, devolviéndoles paz y equilibrio.",
     tag: "Autocompasión e integración",
@@ -94,7 +98,7 @@ const tools = [
                 <Image
                   src={tool.image}
                   alt={tool.imageAlt}
-                  class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  class={`w-full h-full object-cover ${tool.imagePosition || "object-center"} transition-transform duration-700 ease-out group-hover:scale-105`}
                   width={600}
                   height={450}
                   quality={90}
@@ -103,7 +107,7 @@ const tools = [
                 <img
                   src={tool.imageUrl}
                   alt={tool.imageAlt}
-                  class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                  class={`w-full h-full object-cover ${tool.imagePosition || "object-center"} transition-transform duration-700 ease-out group-hover:scale-105`}
                   loading="lazy"
                   decoding="async"
                 />
